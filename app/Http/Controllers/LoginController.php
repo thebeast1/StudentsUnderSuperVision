@@ -16,27 +16,27 @@ class LoginController extends Controller
         ]))
         {
             $user = User::where('email',$request->email)->first();
-            if($user->isAdmin())
+            if($user->isAdmin()) # 0
             {
                 return redirect()->route('adminDashboard');
             }
-             else if($user->isEmployee())
+             else if($user->isEmployee()) # 1
             {
                 return redirect()->route('employeeDashboard');
             }
-            else if($user->isSecurityView())
+            else if($user->isSecurityView()) # 2
             {
                 return redirect()->route('secViewDashboard');
             }
-            else if($user->isSecurityUpdator())
+            else if($user->isSecurityUpdator()) # 3
             {
                 return redirect()->route('secUpdatorDashboard');
             }
-            else if($user->isCulturealOffice())
+            else if($user->isCulturealOffice()) # 4
             {
                 return redirect()->route('culturealOfficeDashboard');
             }
-            else if($user->isStudent())
+            else if($user->isStudent()) # 5
             {
                 return redirect()->route('profile');
             }  
